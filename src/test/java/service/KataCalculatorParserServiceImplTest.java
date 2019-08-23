@@ -104,5 +104,4 @@ class KataCalculatorParserServiceImplTest {
         //then
         assertThat(result).containsExactly(-1, -2, -3);
     }
-
 }

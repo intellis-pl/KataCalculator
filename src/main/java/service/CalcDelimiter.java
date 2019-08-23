@@ -6,11 +6,7 @@ import java.util.stream.Stream;
 
 public enum CalcDelimiter {
     COMMA(","),
-    NEWLINE("\n"),
-    DELIMITER_INDICATOR("//"),
-    START_DELIMITER_SEPARATOR("["),
-    DELIMITER_SEPARATOR_SPLITTER("]\\["),
-    JOIN_DELIMITER("|");
+    NEWLINE("\n");
 
     private String delimiter;
 
@@ -19,7 +15,7 @@ public enum CalcDelimiter {
     }
 
     public static List<String> getNumberSeparators() {
-        return Stream.of(COMMA, NEWLINE).map(CalcDelimiter::get).collect(Collectors.toList());
+        return Stream.of(values()).map(CalcDelimiter::get).collect(Collectors.toList());
     }
 
     public String get() {

@@ -28,11 +28,11 @@ public class KataCalculatorServiceImpl implements KataCalculatorService {
             return 0;
         }
         List<Integer> numbers = parserService.getNumbers(inputNumbers);
-        validWithNegatives(numbers);
+        validateWithNegatives(numbers);
         return numbers.stream().filter(isNumberBelowOrEqualThousand()).reduce(0, Integer::sum);
     }
 
-    private void validWithNegatives(List<Integer> numbers) {
+    private void validateWithNegatives(List<Integer> numbers) {
         String negatives = numbers.stream().filter(isNumberBelowZero()).map(String::valueOf).collect(Collectors.joining(COMMA.get()));
         if(isNotEmpty(negatives)) {
             throw new IllegalArgumentException(format("Negatives are not allowed: %s", negatives));
